@@ -1,0 +1,66 @@
+# =========================================================================
+# Các file biên dịch của Java (Compiled class files)
+# =========================================================================
+*.class
+*.log
+*.ctxt
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Khách quan: Loại trừ thư mục target (Maven) và build (Gradle)
+target/
+bin/
+build/
+out/
+
+# =========================================================================
+# JetBrains IntelliJ IDEA
+# =========================================================================
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+classes/
+
+# Thường giữ lại file runConfigurations nếu muốn chia sẻ cấu hình chạy với team
+# Nếu không muốn chia sẻ, bỏ dấu thăng (#) ở dòng dưới:
+#.idea/runConfigurations/
+
+# =========================================================================
+# Eclipse
+# =========================================================================
+.metadata/
+.classpath
+.project
+.settings/
+*.launch
+
+# =========================================================================
+# NetBeans
+# =========================================================================
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# =========================================================================
+# Gradle (Nếu dùng Gradle làm công cụ build)
+# =========================================================================
+.gradle/
+/build/
+
+# Tránh commit file cấu hình cục bộ của wrapper
+!gradle-wrapper.jar
+
+# =========================================================================
+# Các file tạm và file hệ thống (OS generated files)
+# =========================================================================
+.DS_Store
+Thumbs.db
