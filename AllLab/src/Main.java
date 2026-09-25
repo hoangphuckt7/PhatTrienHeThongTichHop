@@ -19,21 +19,21 @@ public class Main {
 			int numb = scanner.nextInt();
 			scanner.nextLine();
 			switch (numb) {
-			case 1:
-				Lab1 BaiLab1 = new Lab1();
-				BaiLab1.MainLab1();
-				break;
-			case 2:
-				Lab2 BaiLab2 = new Lab2();
-				BaiLab2.MainLab2();
-				break;
-			case 4:
-				Lab4 BaiLab4 = new Lab4();
-				BaiLab4.MainLab4();
-				break;
-			default:
-				isExit = true;
-				break;
+				case 1:
+					Lab1 BaiLab1 = new Lab1();
+					BaiLab1.MainLab1();
+					break;
+				case 2:
+					Lab2 BaiLab2 = new Lab2();
+					BaiLab2.MainLab2();
+					break;
+				case 4:
+					Lab4 BaiLab4 = new Lab4();
+					BaiLab4.MainLab4();
+					break;
+				default:
+					isExit = true;
+					break;
 			}
 		}
 		scanner.close();

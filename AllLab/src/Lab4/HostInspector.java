@@ -18,9 +18,6 @@ public class HostInspector {
 		System.out.println();
 		System.out.println("-------Address là: host-khong-ton-tai.invalid");
 		Bai4dot1(new String[] {"host-khong-ton-tai.invalid"});
-
-		
-
 	}
 	private static void Bai4dot1(String[] args) {
 		if (args.length != 1) {
