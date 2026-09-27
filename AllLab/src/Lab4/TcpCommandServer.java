@@ -15,16 +15,17 @@ public class TcpCommandServer {
 	private static final int PORT = 5000;
 	public static void main(String[] args) {
 		try (ServerSocket server = new ServerSocket(PORT)) {
-			System.out.println("TCP server listening on port " + PORT);
+			System.out.println("[SERVER] Server started!");
+			System.out.println("[SERVER] TCP server listening on port " + PORT);
 			while (true) {
 				try (Socket socket = server.accept()) {
 					serve(socket);
 				} catch (IOException e) {
-					System.err.println("Loi phien client: " + e.getMessage());
+					System.err.println("> Loi phien client: " + e.getMessage());
 				}
 			}
 			} catch (IOException e) {
-				System.err.println("Khong mo duoc Server: " + e.getMessage());
+				System.err.println("> Khong mo duoc Server: " + e.getMessage());
 			}
 	}
 	static void serve(Socket socket) throws IOException {
@@ -42,7 +43,7 @@ public class TcpCommandServer {
 	}
 	static String process(String request) {
 		String trimmed = request.trim();
-		if (trimmed.equalsIgnoreCase("PING")) return "OK PONG";
+		if (trimmed.equalsIgnoreCase("PING")) return "OK PING";
 		if (trimmed.equalsIgnoreCase("TIME")) {
 			return "OK " + LocalDateTime.now();
 		}

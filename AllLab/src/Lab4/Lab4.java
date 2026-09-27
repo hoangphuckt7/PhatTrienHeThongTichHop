@@ -1,30 +1,46 @@
 package Lab4;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Lab4 {
     private static Scanner scanner;
 	private static boolean isExit = false;
+    private static final List<String> BASE_COMPILE_COMMAND = List.of(
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-d",
+        "src/Lab4/out"
+    );
     public static void MainLab4() {
         scanner = new Scanner(System.in);
         while (!isExit) {
 			System.out.println("================= Chọn bài muốn xem hoặc thoát ======");
 			System.out.println("===== Bài 1: Khảo sát địa chỉ mạng ==================");
-			System.out.println("========= Thoát chương trình (0) ========================");
+			System.out.println("===== Bài 2: TCP client server theo giao thức dòng ==");
 			System.out.print("========= Chọn: ");
 			int numb = scanner.nextInt();
 			scanner.nextLine();
 			switch (numb) {
 				case 1:
-                    if (!compile()) {
+                    if (!compile(1)) {
                         System.out.println("[ERROR] Biên dịch thất bại.");
                         return;
                     }
 
                     run();
 					break;
+                case 2:
+                    if (!compile(2)) {
+                        System.out.println("[ERROR] Biên dịch thất bại.");
+                        return;
+                    }
 
+                    // run();
+					break;
 				default:
 					isExit = true;
 					break;
@@ -32,17 +48,16 @@ public class Lab4 {
 		}
 		scanner.close();
     }
-    private static boolean compile() {
+    private static boolean compile(Integer numb) {
 
         System.out.println("[BUILD] Đang biên dịch...");
-        String[] command = {
-            "javac",
-            "-encoding",
-            "UTF-8",
-            "-d",
-            "src/Lab4/out",
-            "src/Lab4/HostInspector.java"
-        };
+        List<String> command = new ArrayList<>(BASE_COMPILE_COMMAND);
+        if(numb == 1){
+            command.add("AllLab/src/Lab4/HostInspector.java");
+        } else if(numb == 2){
+            command.add("AllLab/src/Lab4/TcpCommandServer.java");
+            command.add("AllLab/src/Lab4/TcpCommandClient.java");
+        }
         try {
             System.out.println("> " + String.join(" ", command));
             
