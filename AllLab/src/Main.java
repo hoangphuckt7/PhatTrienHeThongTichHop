@@ -7,7 +7,7 @@ import Lab4.Lab4;
 public class Main {
 	private static Scanner scanner;
 	private static boolean isExit = false;
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		scanner = new Scanner(System.in);
 		while (!isExit) {
 			System.out.println("================= Chọn bài Lab muốn xem hoặc thoát ======");

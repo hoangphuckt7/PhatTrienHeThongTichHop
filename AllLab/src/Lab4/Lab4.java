@@ -1,6 +1,9 @@
 package Lab4;
 
 import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,9 +16,13 @@ public class Lab4 {
         "-encoding",
         "UTF-8",
         "-d",
-        "src/Lab4/out"
+        "AllLab/src/Lab4/out"
     );
-    public static void MainLab4() {
+    private static String Server = "java -cp AllLab/src/Lab4/out/ Lab4.TcpCommandServer";
+    private static String Client = "java -cp AllLab/src/Lab4/out/ Lab4.TcpCommandClient";
+    private static String HOST = "localhost";
+	private static int PORT = 5000;
+    public static void MainLab4() throws Exception {
         scanner = new Scanner(System.in);
         while (!isExit) {
 			System.out.println("================= Chọn bài muốn xem hoặc thoát ======");
@@ -38,8 +45,19 @@ public class Lab4 {
                         System.out.println("[ERROR] Biên dịch thất bại.");
                         return;
                     }
+                    if(isServerRunning(HOST, PORT)){
+                        System.out.println("> Server đang chạy.");
+                    } else{
+                        System.out.println("[ERROR] Server đang chạy.");
+                        System.out.println("> Chạy lại server.");
+                        openTerminal("Server",Server);
 
-                    // run();
+                        waitForServer(HOST, PORT);
+                    }
+                    System.out.println( "[LAUNCHER] Starting Client..." );
+
+                    openTerminal( "Client", Client);
+
 					break;
 				default:
 					isExit = true;
@@ -91,7 +109,7 @@ public class Lab4 {
         String[] command = {
             "java",
             "-cp",
-            "src/Lab4/out/",
+            "AllLab/src/Lab4/out/",
             "Lab4.HostInspector"
         };
         try {
@@ -108,5 +126,48 @@ public class Lab4 {
 
             System.out.println("[RUN] Lỗi: " + e.getMessage());
         }
+    }
+
+    private static boolean isServerRunning(String host, int port){
+        try (Socket socket = new Socket()) {
+            socket.connect(
+                new InetSocketAddress(host, port)
+                , 5000);
+
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    private static void openTerminal( String title, String command ) throws IOException {
+
+        new ProcessBuilder(
+            "cmd.exe",
+            "/c",
+            "start",
+            "\"" + title + "\"",
+            "cmd.exe",
+            "/k",
+            command
+        ).start();
+    }
+
+    private static void waitForServer( String host, int port ) throws InterruptedException {
+
+        System.out.println("[LAUNCHER] Waiting for server...");
+
+        while (!isServerRunning(host, port)) {
+
+            Thread.sleep(500);
+
+            System.out.println(
+                "[LAUNCHER] Server chưa ready..."
+            );
+        }
+
+        System.out.println(
+            "[LAUNCHER] Server READY!"
+        );
     }
 }
