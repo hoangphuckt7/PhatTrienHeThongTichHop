@@ -9,6 +9,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Lab3",
+            "request": "launch",
+            "mainClass": "Lab3.Lab3",
+            "projectName": "AllLab"
+        },
+        {
             "name": "Launch Edge",
             "request": "launch",
             "type": "msedge",
@@ -76,7 +83,6 @@
             "projectName": "AllLab",
             "console": "integratedTerminal",
             "vmArgs": "-Dfile.encoding=UTF-8"
-            
         },
         {
             "type": "java",

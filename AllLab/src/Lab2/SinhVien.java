@@ -30,7 +30,7 @@ public class SinhVien extends Nguoi {
 
         super.hienThiThongTin();
         System.out.println("Mã SV: " + maSinhVien + " Ngành học: " + nganhHoc + " ĐTB: " + diemTrungBinh
-                + " | Xếp loại: " + xepLoai());
+                + " - Xếp loại: " + xepLoai());
     }
     
 }

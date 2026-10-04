@@ -20,6 +20,6 @@ public class GiangVien extends Nguoi {
     public void hienThiThongTin() {
         
         super.hienThiThongTin();
-        System.out.printf("Mã GV: %s | Chuyên môn: %s | Lương: %,.0f VNĐ\n", maGiangVien, chuyenMon, tinhLuong());
+        System.out.printf("Mã GV: %s - Chuyên môn: %s - Lương: %,.0f VNĐ\n", maGiangVien, chuyenMon, tinhLuong());
     }
 }

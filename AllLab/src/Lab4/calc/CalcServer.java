@@ -17,7 +17,7 @@ public class CalcServer {
             System.out.println("[SERVER] Server started!");
             System.out.println("[SERVER] TCP server listening on port " + PORT);
             while (true) {
-                try (Socket socket = server.accept()) { // chấp nhận kết nối từ cient
+                try (Socket socket = server.accept()) {
                     handleClient(socket);
                 } catch (IOException e) {
                     System.err.println("> Loi phien client: " + e.getMessage());
@@ -50,19 +50,18 @@ public class CalcServer {
     private static String processCalculation(String requestStr) {
         String[] parts = requestStr.trim().split("\\s+");
 
-        // Kiểm tra cú pháp cơ bản: CALC op num1 num2 (tổng cộng 4 phần)
         if (parts.length != 4 || !parts[0].equalsIgnoreCase("CALC")) {
             return "ERR INVALID_SYNTAX";
         }
 
-        String operator = parts[1];
+        String operator = parts[2];
         double num1, num2;
 
         try {
-            num1 = Double.parseDouble(parts[2]);
+            num1 = Double.parseDouble(parts[1]);
             num2 = Double.parseDouble(parts[3]);
         } catch (NumberFormatException e) {
-            return "ERR INVALID_OPERAND"; // Toán hạng không phải là số hợp lệ
+            return "ERR INVALID_OPERAND";
         }
 
         double result = 0;
@@ -83,7 +82,7 @@ public class CalcServer {
                 result = num1 / num2;
                 break;
             default:
-                return "ERR INVALID_OPERATOR"; // Toán tử không được hỗ trợ
+                return "ERR INVALID_OPERATOR";
         }
 
         return "OK " + result;
