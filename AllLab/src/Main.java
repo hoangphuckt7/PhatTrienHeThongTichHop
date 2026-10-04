@@ -19,6 +19,9 @@ public class Main {
 			int numb = scanner.nextInt();
 			scanner.nextLine();
 			switch (numb) {
+				case 0:
+					isExit = true;
+					break;
 				case 1:
 					Lab1 BaiLab1 = new Lab1();
 					BaiLab1.MainLab1();

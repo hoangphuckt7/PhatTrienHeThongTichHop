@@ -20,7 +20,8 @@
             "name": "Current File",
             "request": "launch",
             "mainClass": "Main",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "vmArgs": "-Dfile.encoding=UTF-8"
         },
         {
             "type": "java",
@@ -28,7 +29,8 @@
             "request": "launch",
             "mainClass": "Lab4.HostAndUriInspector",
             "projectName": "AllLab",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "vmArgs": "-Dfile.encoding=UTF-8"
         },
         {
             "type": "java",
@@ -36,7 +38,8 @@
             "request": "launch",
             "mainClass": "Lab4.HostInspector",
             "projectName": "AllLab",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "vmArgs": "-Dfile.encoding=UTF-8"
         },
         {
             "type": "java",
@@ -44,7 +47,8 @@
             "request": "launch",
             "mainClass": "Lab4.NumberClient",
             "projectName": "AllLab",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "vmArgs": "-Dfile.encoding=UTF-8"
         },
         {
             "type": "java",
@@ -52,7 +56,8 @@
             "request": "launch",
             "mainClass": "Lab4.NumberServer",
             "projectName": "AllLab",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "vmArgs": "-Dfile.encoding=UTF-8"
         },
         {
             "type": "java",
@@ -60,7 +65,8 @@
             "request": "launch",
             "mainClass": "Lab4.TcpCommandClient",
             "projectName": "AllLab",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "vmArgs": "-Dfile.encoding=UTF-8"
         },
         {
             "type": "java",
@@ -68,7 +74,9 @@
             "request": "launch",
             "mainClass": "Lab4.TcpCommandServer",
             "projectName": "AllLab",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "vmArgs": "-Dfile.encoding=UTF-8"
+            
         },
         {
             "type": "java",
@@ -76,7 +84,8 @@
             "request": "launch",
             "mainClass": "Main",
             "projectName": "AllLab",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "vmArgs": "-Dfile.encoding=UTF-8"
         }
     ]
 }

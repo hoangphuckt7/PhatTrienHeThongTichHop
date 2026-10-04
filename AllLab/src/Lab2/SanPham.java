@@ -37,4 +37,7 @@ public class SanPham {
 	public void hienThiThongTin() {
 		System.out.println("Tên sp: " + tensp + " Mã sp: " + masp + " Giá: " + gia + " Tồn kho: " + tonkho);
 	}
+	public String getTenSP() {
+        return tensp;
+    }
 }
